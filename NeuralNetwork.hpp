@@ -2,7 +2,7 @@
 #define MYMLPNEURALNETWORK_NEURALNETWORK_HPP
 
 #include "functions.cpp"
-
+#include <fstream>
 
 class NeuralNetwork{
 private:
@@ -10,6 +10,7 @@ private:
     int hiddenNodes;
     int outputNodes;
     //int epochs = 0;
+
     //IH -> input to hidden
     //HO -> hidden to output
     Matrix* weights_ih;
@@ -131,6 +132,60 @@ public:
             this->bias_h->add(hiddenGradients);
         }
     }
+
+    void save(string name){
+        ofstream file;
+        file.open(name + ".txt");
+        file << "inputNodes:" << endl;
+        file << this->inputNodes << endl;
+
+        file << "hiddenNodes:" << endl;
+        file << this->hiddenNodes << endl;
+
+        file << "outputNodes:" << endl;
+        file << this->outputNodes << endl;
+
+        file << "WeightsIH:" << endl;
+        for(int i = 0; i < this->weights_ih->getRows(); i++){
+            for(int j = 0; j < this->weights_ih->getCols(); j++){
+                file << this->weights_ih->data[i][j] << " ";
+            }
+            file << endl;
+        }
+        //file << endl;
+
+        file << "WeightsHO:" << endl;
+        for(int i = 0; i < this->weights_ho->getRows(); i++){
+            for(int j = 0; j < this->weights_ho->getCols(); j++){
+                file << this->weights_ho->data[i][j] << " ";
+            }
+            file << endl;
+        }
+        //file << endl;
+
+        file << "BiasH:" << endl;
+        for(int i = 0; i < this->bias_h->getRows(); i++){
+            for(int j = 0; j < this->bias_h->getCols(); j++){
+                file << this->bias_h->data[i][j] << " ";
+            }
+            file << endl;
+        }
+        //file << endl;
+
+        file << "BiasO:" << endl;
+        for(int i = 0; i < this->bias_o->getRows(); i++){
+            for(int j = 0; j < this->bias_o->getCols(); j++){
+                file << this->bias_o->data[i][j] << " ";
+            }
+            file << endl;
+        }
+        //file << endl;
+
+        file << "LearningRate:" << endl;
+        file << this->learningRate << endl;
+        file.close();
+    }
+
 
 };
 

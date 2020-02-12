@@ -24,19 +24,13 @@ private:
     int rows;
     int cols;
 public:
-    double** data;
+    double** data = nullptr;
 
     Matrix(int rows, int cols){
         this->rows = rows;
         this->cols = cols;
         data = createMatrix(rows, cols);
     }
-
-    /*Matrix() {
-        rows = 0;
-        cols = 0;
-        data = NULL;
-    }*/
 
     double** createMatrix(int r, int c){
         int i = 0;
@@ -140,8 +134,7 @@ public:
     void randomize() {
         for (int i = 0; i < this->rows; i++) {
             for (int j = 0; j < this->cols; j++) {
-                //this->data[i][j] = rand() % 10 ;
-                this->data[i][j] = 1;
+                this->data[i][j] = rand() % 2;
             }
         }
     }
