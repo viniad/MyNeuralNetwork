@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/vinic/Desktop/K402/Projetos/MyMLPNeuralNetwork/Matrix.hpp
+cmath
+-
+cstdlib
+-
+
+C:/Users/vinic/Desktop/K402/Projetos/MyMLPNeuralNetwork/NeuralNetwork.hpp
+functions.cpp
+C:/Users/vinic/Desktop/K402/Projetos/MyMLPNeuralNetwork/functions.cpp
+
+C:/Users/vinic/Desktop/K402/Projetos/MyMLPNeuralNetwork/functions.cpp
+Matrix.hpp
+C:/Users/vinic/Desktop/K402/Projetos/MyMLPNeuralNetwork/Matrix.hpp
+
+C:/Users/vinic/Desktop/K402/Projetos/MyMLPNeuralNetwork/main.cpp
+iostream
+-
+vector
+-
+cstdlib
+-
+cmath
+-
+Matrix.hpp
+C:/Users/vinic/Desktop/K402/Projetos/MyMLPNeuralNetwork/Matrix.hpp
+NeuralNetwork.hpp
+C:/Users/vinic/Desktop/K402/Projetos/MyMLPNeuralNetwork/NeuralNetwork.hpp
+
