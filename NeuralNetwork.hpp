@@ -9,18 +9,19 @@ private:
     int inputNodes;
     int hiddenNodes;
     int outputNodes;
-    //int epochs = 0;
 
     //IH -> input to hidden
     //HO -> hidden to output
     Matrix* weights_ih;
     Matrix* weights_ho;
+    //H -> hidden
+    //O -> output
     Matrix* bias_h;
     Matrix* bias_o;
     double learningRate;
 
 public:
-    NeuralNetwork(int iNodes, int hNodes, int oNodes){
+    NeuralNetwork(int iNodes, int hNodes, int oNodes, double learningRate){
         this->inputNodes = iNodes;
         this->hiddenNodes = hNodes;
         this->outputNodes = oNodes;
@@ -40,7 +41,7 @@ public:
         this->bias_o->randomize();
         this->weights_ih->randomize();
         this->weights_ho->randomize();
-        this->learningRate = 0.1;
+        this->learningRate = learningRate;
     }
 
     ~NeuralNetwork(){
@@ -52,10 +53,6 @@ public:
         //H = I(i) * W(i,j) + B(i)
         Matrix* inputs = fromArray(input); //transforming an array into a matrix
         Matrix* hidden = multiply(this->weights_ih, inputs);
-       // cout << "hidden" << endl;
-        //hidden->print();
-        //cout << "bias h" << endl;
-        //this->bias_h->print();
         hidden->add(this->bias_h);
 
         //Activation function

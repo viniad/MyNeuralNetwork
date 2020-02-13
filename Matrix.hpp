@@ -14,10 +14,7 @@ double dsigmoid(double y){
     return y * (1 - y);
 }
 
-
-
 using namespace std;
-
 
 class Matrix{
 private:
@@ -39,14 +36,6 @@ public:
             temp[i] = (double*) malloc(sizeof(double) * c);
         }
         return temp;
-    }
-
-    void copyFrom(Matrix* src){
-        for(int i = 0; i < src->rows; i++){
-            for(int j = 0; j < src->cols; j++){
-                this->data[i][j] = src->data[i][j];
-            }
-        }
     }
 
     void print(){
@@ -182,7 +171,6 @@ public:
     void zeros(){
         for (int i = 0; i < this->rows; i++) {
             for (int j = 0; j < this->cols; j++) {
-                //this->data[i][j] = rand() % 10 ;
                 this->data[i][j] = 0;
             }
         }
